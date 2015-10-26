@@ -6,6 +6,8 @@
 //  Copyright © 2015 Matthew Maher. All rights reserved.
 //
 
+// http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=bd82977b86bf27fb59a04b61b657fb6f
+
 
 import Foundation
 
