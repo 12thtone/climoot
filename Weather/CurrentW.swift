@@ -15,156 +15,149 @@ class CurrentW {
     private var _myLongitude: String!
     private var _appID: String!
     
-    private var _currentTemp: String!
-    private var _currentLow: String!
-    private var _currentHigh: String!
+    private var _day: String!
     
-    var location: Location!
+    private var _currentTemp: Int!
+    private var _currentTempFar: Int!
+    private var _currentHumidity: String!
+    private var _currentWind: Int!
+    private var _currentWindInMph: Int!
+    private var _locationName: String!
     
-    init () {
-        _myLatitude = "lat=\(location.latitude)"
-        _myLongitude = "&lon=\(location.longitude)"
-        _appID = "&appid=\(API_KEY)"
-        _currentURL = "\(URL_BASE_NOW)\(_myLatitude)\(_myLongitude)"
-    }
     
-    var currentURL: String {
-        if _currentURL == nil {
-            _currentURL = "http://12thtone.com"
+    var day: String {
+        if _day == nil {
+            _day = "What day is it?"
         }
-        return _currentURL
+        return _day
     }
     
-    var currentTemp: String {
+    var currentTemp: Int {
         if _currentTemp == nil {
-            _currentTemp = ""
+            _currentTemp = 0
         }
         return _currentTemp
     }
     
-    var currentLow: String {
-        if _currentLow == nil {
-            _currentLow = ""
+    var currentTempFar: Int {
+        if _currentTempFar == nil {
+            _currentTempFar = 0
         }
-        return _currentLow
-    }
-    
-    var currentHigh: String {
-        if _currentHigh == nil {
-            _currentHigh = ""
-        }
-        return _currentHigh
-    }
-    
-    func downloadPokemonDetails(completed: DownloadComplete) {
         
-        let url = NSURL(string: _currentURL)!
+        return _currentTempFar
+    }
+    
+    var currentHumidity: String {
+        if _currentHumidity == nil {
+            _currentHumidity = "0"
+        }
+        return _currentHumidity
+    }
+    
+    var currentWind: Int {
+        if _currentWind == nil {
+            _currentWind = 0
+        }
+        return _currentWind
+    }
+    
+    var currentWindInMph: Int {
+        if _currentWindInMph == nil {
+            _currentWindInMph = 0
+        }
+        
+        return _currentWindInMph
+    }
+    
+    var locationName: String {
+        if _locationName == nil {
+            _locationName = "... uh ..."
+        }
+        return _locationName
+    }
+    
+    var currentURL: String {
+        if _currentURL == nil {
+            print("\(latitude) !!!!! \(longitude)")
+            
+            let lat = latitude
+            let long = longitude
+            
+            _myLatitude = "lat=\(lat)"
+            _myLongitude = "&lon=\(long)"
+            _appID = "&appid=\(API_KEY)"
+            
+            _currentURL = "\(URL_BASE_NOW)\(_myLatitude)\(_myLongitude)\(_appID)"
+        }
+        
+        return _currentURL
+    }
+    
+    init (day: String) {
+        self._day = day
+    }
+    
+    func downloadCurrentWDetails(completed: DownloadComplete) {
+        
+        print("UUURRRLLLL \(currentURL)")
+        
+        let url = NSURL(string: currentURL)!
+        
+        print(url)
         
         Alamofire.request(.GET, url).responseJSON { response in
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
-                if let weight = dict["weight"] as? String {
-                    self._weight = weight
+                if let name = dict["name"] as? String {
+                    print(name)
+                    self._locationName = name
                 }
                 
-                if let height = dict["height"] as? String {
-                    self._height = height
-                }
-                
-                // In as Int, convert to string
-                if let attack = dict["attack"] as? Int {
-                    self._attack = "\(attack)"
-                }
-                
-                // In as Int, convert to string
-                if let defense = dict["defense"] as? Int {
-                    self._defense = "\(defense)"
-                }
-                
-                // The JSON dict's "types" is an array of dictionaries
-                // Key = String and Value = String
-                if let types = dict["types"] as? [Dictionary<String, String>] where types.count > 0 {
+                if let main = dict["main"] as AnyObject? {
                     
-                    if let name = types[0]["name"] {
-                        self._type = name.capitalizedString
-                    }
-                    
-                    if types.count > 1 {
-                        for var x = 1; x < types.count; x++ {
-                            if let name = types[x]["name"] {
-                                self._type! += "/\(name.capitalizedString)"
-                            }
-                        }
-                    }
-                    
-                } else {
-                    self._type = ""
-                }
-                
-                if let descArr = dict["descriptions"] as? [Dictionary<String, String>] where descArr.count > 0 {
-                    
-                    if let url = descArr[0]["resource_uri"] {
+                    if let temp = main["temp"] as AnyObject? {
                         
-                        let nsurl = NSURL(string: "\(URL_BASE)\(url)")!
-                        
-                        // URL returned - need a new request
-                        Alamofire.request(.GET, nsurl).responseJSON { response in
-                            
-                            let desResult = response.result
-                            
-                            if let descDict = desResult.value as? Dictionary<String, AnyObject> {
-                                
-                                // as? String due to AnyObject
-                                if let description = descDict["description"] as? String {
-                                    self._description = description
-                                    
-                                }
-                                
-                            }
-                            
-                            completed()
-                        }
+                        print("Now: \(Int(self.toFaren(temp)))")
+                        self._currentTempFar = Int(self.toFaren(temp))
+                        print("Now: \(self._currentTempFar)")
                     }
                     
-                } else {
-                    self._description = ""
-                }
-                
-                if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>] where evolutions.count > 0 {
-                    
-                    // to is name of next evolution
-                    if let to = evolutions[0]["to"] as? String {
+                    if let humidity = main["humidity"] as AnyObject? {
                         
-                        // Exclude anything with the word "mega"
-                        // API supports mega, but we don't have images, etc.
-                        if to.rangeOfString("mega") == nil {
-                            
-                            if let uri = evolutions[0]["resource_uri"] as? String {
-                                
-                                // Returns URL with character number.
-                                // Remove everything but the number.
-                                let newString = uri.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
-                                
-                                let num = newString.stringByReplacingOccurrencesOfString("/", withString: "")
-                                
-                                self._nextEvolutionId = num
-                                self._nextEvolutionText = to
-                                
-                                if let level = evolutions[0]["level"] as? Int {
-                                    self._nextEvolutionLvl = "\(level)"
-                                }
-                                
-                            }
-                            
-                        }
+                        print("Humidity: \(humidity)")
+                        self._currentHumidity = String(humidity)
                     }
-                    
                 }
                 
+                if let main = dict["wind"] as AnyObject? {
+                    
+                    if let windSpeed = main["speed"] as AnyObject? {
+                        
+                        print("Wind: \(Int(self.toMph(windSpeed)))")
+                        self._currentWindInMph = Int(self.toMph(windSpeed))
+                        print("Wind: \(self._currentWindInMph)")
+                    }
+                }
+            
+            } else {
+                print("Didn't Parse")
             }
+            completed()
         }
+    }
+    
+    func toFaren(temp: AnyObject) -> Double {
+        let farTemp = (Double(temp as! Double) * (9 / 5)) - 459.67
+        
+        return farTemp
+    }
+    
+    func toMph(metPerSec: AnyObject) -> Double {
+        let windMph = (Double(metPerSec as! Double)) * 2.23694
+        
+        return windMph
     }
 }
 

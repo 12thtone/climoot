@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -39,17 +39,17 @@
                                         <animations/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bbR-0A-VEj">
-                                        <rect key="frame" x="237" y="160" width="88" height="29"/>
+                                        <rect key="frame" x="233" y="160" width="94" height="29"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qym-2d-a1W">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qym-2d-a1W">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="29"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyS-9H-TH7">
-                                                <rect key="frame" x="59" y="0.0" width="29" height="29"/>
+                                                <rect key="frame" x="66" y="0.0" width="29" height="29"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,17 +59,17 @@
                                         <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pRL-9C-cWX">
-                                        <rect key="frame" x="238" y="189" width="85" height="30"/>
+                                        <rect key="frame" x="222" y="189" width="118" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-8J-g0W">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-8J-g0W">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="30"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxX-hJ-WVi">
-                                                <rect key="frame" x="56" y="0.0" width="29" height="30"/>
+                                                <rect key="frame" x="89" y="0.0" width="29" height="30"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,17 +79,17 @@
                                         <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DvO-rM-E0f">
-                                        <rect key="frame" x="237" y="219" width="87" height="29"/>
+                                        <rect key="frame" x="235" y="219" width="92" height="29"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jut-wC-P4v">
-                                                <rect key="frame" x="0.0" y="0.0" width="39" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jut-wC-P4v">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="29"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJl-Or-TDS">
-                                                <rect key="frame" x="59" y="0.0" width="29" height="29"/>
+                                                <rect key="frame" x="63" y="0.0" width="29" height="29"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -311,6 +311,28 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Tzc-4W-Dtj" secondAttribute="bottom" id="uok-fV-vo1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coinHighLabel" destination="2Jb-xN-N6Q" id="qRj-id-Jgc"/>
+                        <outlet property="coinImage" destination="uwS-8m-UwY" id="Cin-JJ-0jW"/>
+                        <outlet property="coinLowLabel" destination="WXY-aH-7rN" id="v9P-SY-oCC"/>
+                        <outlet property="currentHumLabel" destination="gxX-hJ-WVi" id="vAr-di-Pj0"/>
+                        <outlet property="currentTempLabel" destination="WyS-9H-TH7" id="vrz-yp-JNp"/>
+                        <outlet property="currentWindLabel" destination="SJl-Or-TDS" id="80A-oq-Gb2"/>
+                        <outlet property="locationLabel" destination="5qm-ai-RP8" id="6ok-7I-nJo"/>
+                        <outlet property="mainImage" destination="5kq-To-xDn" id="0qO-E3-C9N"/>
+                        <outlet property="serHighLabel" destination="d4x-B2-8cQ" id="NYM-1E-XVe"/>
+                        <outlet property="serImage" destination="f9W-4I-8o6" id="SZm-Ib-AVG"/>
+                        <outlet property="serLowLabel" destination="Jlq-dy-hGs" id="rOX-UJ-dex"/>
+                        <outlet property="todayHighLabel" destination="dhV-33-7cH" id="M3B-0j-M5A"/>
+                        <outlet property="todayImage" destination="Z1W-XP-Vha" id="lhD-VC-v6b"/>
+                        <outlet property="todayLowLabel" destination="L3k-v9-oXM" id="djK-vZ-4dS"/>
+                        <outlet property="tomHighLabel" destination="VCg-oz-DxY" id="jUw-5v-3nC"/>
+                        <outlet property="tomImage" destination="9uw-rB-tsa" id="qbN-zO-z9l"/>
+                        <outlet property="tomLowLabel" destination="YNr-vD-Ck4" id="vbv-0Z-AB3"/>
+                        <outlet property="twoDaysHighLabel" destination="uFC-g5-6yh" id="Ogv-9a-Si1"/>
+                        <outlet property="twoDaysLowLabel" destination="M9i-Bz-tcu" id="3dD-om-jpu"/>
+                        <outlet property="twoImage" destination="OIV-Ok-teY" id="3CD-kO-qfM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
